@@ -1,0 +1,201 @@
+﻿@model diploma.ViewModels.LoginModel
+@{
+    ViewData["Title"] = "Войти в систему";
+}
+
+<title>Login V15</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    #borders {
+        border: 1px solid #adb5bd; /* Параметры рамки */
+        padding: 5px; /* Поля вокруг текста */
+        border-radius: 12px;
+        width: 70%; /* Ширина слоя */
+        background: #dee2e67d; /* Цвет фона */
+        margin-left: 10px;
+        height: 43px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 20px;
+    }
+    #error-message {
+        margin-top: 10px;
+        font-size: 14px;
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #f5c6cb;
+        display: none;
+    }
+</style>
+
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<link rel="stylesheet" type="text/css" href="~/css/login.css">
+<!--===============================================================================================-->
+
+
+<div id="particle-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100" style="opacity: 0.6;">
+            <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+                <span class="login100-form-title-1">
+                    <img src="/images/science.png" style="width: 183px; height: 183px;">
+                </span>
+                <p style="font-family: Century Gothic, cursive; font-size: 1.5rem;"> Личный кабинет </p>
+            </div>
+
+            <form class="login100-form validate-form" id="login-form" asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+                <div class="validation" asp-validation-summary="ModelOnly" style="margin-left: 20px; font-weight: 700; font-family: Century Gothic, cursive; color: darkred; "> </div>
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Введите логин!">
+                    <span class="label-input100">
+                        <i class="fa fa-user fa-lg"></i>
+                    </span>
+                    <input class="input100" type="text" id="log" asp-for="Login" name="login" style="background: url() no-repeat center left; padding-left: 37px; " />
+
+                    <span class="focus-input100" asp-validation-for="Login" />
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-18" data-validate="Введите пароль!">
+                    <span class="label-input100">
+                        <i class="fa fa-key fa-lg"></i>
+                    </span>
+                    <input class="input100" type="password" name="pass" id="password" asp-for="Password" style="background: url() no-repeat center left; padding-left: 37px; " />
+                    <span class="focus-input100" asp-validation-for="Password" />
+                </div>
+
+                <!--
+                                   <div class="flex-sb-m w-full p-b-30">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div>
+                        <a href="#" class="txt1">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
+                -->
+                <div class="container-login100-form-btn">
+                    <input type="hidden" name="captchaToken" id="captchaToken" />
+                    <button type="submit" class="login100-form-btn" onclick="load()" id="login">
+                        Войти
+                    </button>
+                </div>
+            </form>
+            <div class="text-center p-3" style="background-color: rgba(255, 255, 255); font-family: 'Gill Sans', sans-serif;">
+                <!-- Регистрация с помощью ORCID -->
+                <button id="borders" onclick="openLoginWindow()">
+                    <img src="~/images/orcid.png" style="width: 30px; height: 30px; margin-bottom: 7px;" />
+                    Войти с помощью ORCID
+                </button>
+                <div id="error-message" style="display:none; color:red;"></div>
+            </div>
+
+            <!-- Дефолтная регистрация -->
+            <div class="text-center p-3" style="background-color: rgba(255, 255, 255); font-family: 'Gill Sans', sans-serif; display: none;">
+                <div style="margin-top: -15px;">
+                    <div class="cont1" style="margin-left: 15px; margin-bottom: 18px;">
+                        Нет учетной записи?
+                    </div>
+
+                    <div class="cont2">
+                        <button style="border-radius: 30px; height: 40px; margin-top: -10px; margin-left: 10px;" class="btn btn-success">
+                            Зарегистрироваться
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--===============================================================================================-->
+<script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/vendor/bootstrap/js/popper.js"></script>
+<script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/vendor/daterangepicker/moment.min.js"></script>
+<script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="~/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="/js/main.js"></script>
+
+<script>
+
+    function openLoginWindow() {
+        var width = 600;
+        var height = 400;
+        var left = (screen.width / 2) - (width / 2);
+        var top = (screen.height / 2) - (height / 2);
+        window.open('/Account/ORCIDLogin', 'Login with ORCID', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left);
+    }
+</script>

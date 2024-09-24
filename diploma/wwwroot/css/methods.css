@@ -1,0 +1,27 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.option {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+.li {
+    list-style-type: none
+}
+
+.nav-head {
+    padding: 12px;
+}
+
+.nav-submenu {
+    transform: scaleY(0);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.nav-item:hover .nav-submenu {
+    transform: scaleY(1);
+}

@@ -1,0 +1,10 @@
+@-webkit-keyframes jump {
+    50% {
+        -webkit-transform: translateY(-20px);
+    }
+}
+
+#currentuser:hover {
+    -webkit-animation: jump 1s ease infinite;
+}
+
