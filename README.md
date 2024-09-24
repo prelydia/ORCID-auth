@@ -13,7 +13,19 @@
     "AccessScope": "/read-limited"
   },
 ```
-Требуется установка библиотек Owin и OAuth. В файле Startup.cs добавляем авторизацию через OAuth
+Требуется установка библиотек Owin и OAuth. Создаем класс OrcidSettings в папке Models.
+
+```C#
+public class OrcidSettings
+{
+    public string ClientId { get; set; }
+    public string ClientSecret { get; set; }
+    public string RedirectUri { get; set; }
+    public string AccessScope { get; set; }
+}
+```
+
+В файле Startup.cs добавляем авторизацию через OAuth
 
 ```C#
   ...
